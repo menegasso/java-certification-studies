@@ -1,0 +1,1 @@
+# Estratégia para certificação
