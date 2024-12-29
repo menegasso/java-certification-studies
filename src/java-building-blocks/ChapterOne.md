@@ -85,7 +85,7 @@ O método main() é obrigatório para iniciar a execução.
     * Listas classes específicas: Torna o código mais legível.
     * Usar wildcard: Reduz o número de linhas para pacotes amplamente usados.
 
-### Imports Redundantes
+### Redundant Imports
 
 1. Pacote especial `java.lang`:
     * Classe no pacote `java.lang` são automaticamente importadas.
@@ -144,9 +144,134 @@ O método main() é obrigatório para iniciar a execução.
     import java.sql.Date; // Erro: colisão de imports
     ```
 
-** Para resolver conflitos, use importações específicas ou o nome completo da classe no código. Isso garante clareza e evita ambiguidades no compilador. **
+**Para resolver conflitos, use importações específicas ou o nome completo da classe no código. Isso garante clareza e evita ambiguidades no compilador.**
 
-** Nomear pacotes e entender como compilar/executar no terminal ajuda a organizar o código e facilita a reutilização em projetos maiores. **
+**Nomear pacotes e entender como compilar/executar no terminal ajuda a organizar o código e facilita a reutilização em projetos maiores.**
+
+### Code Formatting on the Exam
+
+1. Omissão de Imports
+    * Se a questão não se trata sobre imports, eles podem ser omitidos para economizar espaço.
+    * Quando o código começa com um número diferente de 1, assume-se que os imports e o restante do código ausente estão corretos.
+
+2. Linha 1 ou Sem Números de Linha:
+    * Quando o código começa na linha 1 ou não tem números de linha, verifique se os imports necessários estão presentes. Exemplo:
+    ```java
+    1: public class LineNumbers {
+    2: public void method(ArrayList list) {
+    3: if (list.isEmpty()) { System.out.println("e");
+    4: } else { System.out.println("n");
+    5: } } }
+    ```
+    **Não compila, pois ArrayList precisa ser importado de java.util.**
+
+3. Código Compactado:
+    * O exame pode apresentar código em uma única linha para economizar espaço:
+    ```java
+    6: public void method(ArrayList list) {
+    7: if (list.isEmpty()) { System.out.println("e");
+    8: } else { System.out.println("n"); } }
+    ```
+
+4. Ausência do main() Method:
+    * Caso o código apresentado não contenha um método main(), assuma que ele e o restante do código necessário estão corretos.
+    * A questão verifica apenas se o trecho mostrado compila quando inserido em um contexto válido.
+
+    **Dica: Sempre preste atenção nas numerações de linha e leia as instruções da questão para identificar o contexto correto.**
+
+
+## Creating Objects
+Nossos programas não seriam capazes de fazer nada útil se não tivéssemos a capacidade de criar novos objetos. Lembre-se de que um objeto é uma instância de uma classe.
+
+### Constructors
+1. Criação de Objetos e Construtores
+    * Um objeto é uma instância de uma classe, criado com o operador new.
+    * O construtor é um método especial que inicializa objetos. Ele:
+        * Tem o mesmo nome da classe.
+        * Nâo tem tipo de retorno.
+        * Exemplo:
+        ```java
+        public class Chick {
+            public Chick() {
+                System.out.println("in constructor");
+            }
+        }
+        ```
+        * Um método com nome de classe e com tipo de retorno não é um construtor:
+        ```java
+         public void Chick() { } // Método comum, não um construtor.
+         ```
+        * Se nenhum construtor for declarado, o compilador cria um construtor padrão vazio.
+
+### Reading and Writing Object Fields
+
+1. Leitura e Escrita de Campos de Objetos
+    * Você pode acessar (ler) e modificar (escrever) diretamente as variáveis de instância de um objeto.
+    ```java
+    public class Swan {
+        int numberEggs;
+
+        public static void main(String[] args) {
+            Swan mother = new Swan();
+            mother.numberEggs = 1; // Escrevendo no campo.
+            System.out.println(mother.numberEggs); // Lendo o campo.
+        }
+    }
+    ```
+
+### Instance Initializer Blocks
+1. Blocos de inicialização de Instância
+    * Em java, os blocos de código são qualquer trecho de código dentro de chaves {}. Quando dentro de um método, o código é executado quando o método é chamado. Fora de um métodos, são chamados blocos de inicialização de instância, executados antes do contrutor da classe. Exemplo:
+    ```java
+        public class Example {
+            public static void main(String[] args) {
+                { System.out.println("Feathers"); }  // Bloco de código no método
+            }
+            { System.out.println("Snowy"); }  // Bloco de inicialização de instância
+        }
+    ```
+    * Blocos de código: Dentro ou fora de métodos.
+    * Bloco de inicialização de instância: Fora de um método, executado antes do construtor.
+
+### Order of Initialization
+1. Ordem de Inicialização em Java
+    * Campos e Blocos de Inicialização: São executados na ordem em que aparecem no código, de cima para baixo.
+    * Construtor: É executado após todos os campos e blocos de inicialização. Exemplo:
+    ```java
+        public class Chick {
+            private String name = "Fluffy"; // Campo inicializado com "Fluffy"
+            
+            { System.out.println("setting field"); } // Bloco de inicialização
+            
+            public Chick() {
+                name = "Tiny"; // Construtor altera o valor de 'name' para "Tiny"
+                System.out.println("setting constructor");
+            }
+            
+            public static void main(String[] args) {
+                Chick chick = new Chick(); // Criação do objeto
+                System.out.println(chick.name); // Imprime o valor de 'name'
+            }
+        }
+    ```
+    * A ordem de execução deve ser seguida rigorosamente para evitar erros de inicialização.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
