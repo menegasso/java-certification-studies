@@ -257,6 +257,104 @@ Nossos programas não seriam capazes de fazer nada útil se não tivéssemos a c
     * A ordem de execução deve ser seguida rigorosamente para evitar erros de inicialização.
 
 
+## Distinguishing Between Object References and Primitives
+Os aplicativos Java contêm dois tipos de dados: tipos primitivos e tipos de referência.
+
+### Primitives Types
+Java tem oito tipos de dados integrados, chamados de tipos primitivos Java. Esses oito tipos de dados representam os blocos de construção para objetos Java, porque todos objetos Java são apenas uma coleção complexa desses tipos de dados primitivos. 
+
+1. Tipos Primitivos
+
+| Keyword     | Type         | Example      |
+|-------------|--------------|--------------|
+|boolean |true or false |true|
+|byte |8-bit integral value|123|
+|short |16-bit integral value|123|
+|int |32-bit integral value|123|
+|long |64-bit integral value|123|
+|float |32-bit floating-point value|123.45f|
+|double |64-bit floating-point value|123.456|
+|char |16-bit Unicode value|'a'|
+
+2. Númericos Sem Pontos Decimais
+    * byte, short, int e long reservam memória proporcional aos seus bits.
+    * Exemplo: int usa 32 bits e seu valor máximo é 2.147.483.647
+
+3. Literais Numéricos
+    * Por padrão, literais numéricos são int. Para valores maiores, utiliza-se o sufixo L.
+    * Exemplo: 9283379287L
+    
+3. Bases númericas suportadas (Decimal, binário, octal e hexadecimal)
+
+4. Undersscores em Literais
+    * Facilitam a leitura de números grandes
+    * Restrições: não usuario no inicio, no fianl, antes ou depois de um ponto decimal.
+
+
+### Reference Types
+
+1. Tipos de Referência
+    * TIpos de referência apotam para objetos (instâncias de classes) na memória.
+    * Diferente de tipos primitivos, que armazenam diretamente seus valores, tipos de referência armazenam o endereço de memória onde o objeto está localizado.
+    * O endereço de memória é abstrato em Java.
+    * Referências podem ser usadas para acessar os métodos e atributos do objeto.
+    * Declaração: `java.util.Date today`ou `String greeting`.
+    * Inicialização: `today = new java.util.Date();`.
+    * A variável de referência aponta para um objeto em memória.
+    * O objeto não possui um nome diretamente; ele é acessado através da referência.
+
+
+### Key Differences
+1. Atribuição de NULL
+    * Tipos de referência: Podem ser atribuídos a null, indicando que não apontam para nenhum objeto.
+        * `String s = null; // COMPILA`
+    * Tipos primitivos: Não podem ser atribuídos a null.
+        * `int value = null; // NÃO COMPILA`
+
+2. Métodos
+    * Tipos de referência: Possuem métodos associados que podem ser chamados, desque não sejam atribuídos a null.
+    ```java
+        String reference = "hello";
+        int len = reference.length(); // válido
+    ```
+    * Tipos primitivos: Não possuem métodos.
+    ```java
+        int len = 5;
+        int bad = len.length(); // NÃO COMPILA
+    ```
+
+## Declaring and Initializing Variables
+
+* Declaração de Variáveis:
+    * Uma variável é um nome para um espaço na memória que armazena dados.
+    * Ao declarar uma variável, é necessário especificar o tipo e o nome da variável.
+
+* Inicialização de Variáveis:
+    * Inicializar uma variável significa atribuir um valor a ela.
+
+* Declaração de Variáveis em uma Linha:
+    * `double d1, d2; // Válido`
+    * `int i3; i4; // NÃO COMPILA`
+
+### Identifiers
+
+* Regras para Identificadores:
+    * Primeiro caractere: Deve começar com uma letra (a–z, A–Z), ou os símbolos $ ou _.
+    * Caracteres subsequentes: Podem ser letras, números, $ ou _.
+    * Palavras reservadas: Não é permitido usar palavras reservadas (ex.: class, int, public) como identificadores.
+
+    * Exemplos de identificadores legais:
+
+        * okidentifier
+        * $OK2Identifier
+        * _alsoOK1d3ntifi3r
+        * __SStillOkbutKnotsonice$
+
+    * Exemplos de identificadores ilegais:
+        * 3DPointClass (não pode começar com número)
+        * hollywood@vine (símbolo @ não permitido)
+        * *$coffee - símbolos * e $ são permitidos, mas a combinação com * é inválida
+        * public (é uma palavra reservada)
 
 
 
