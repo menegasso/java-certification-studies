@@ -122,3 +122,15 @@ System.out.println(sb.toString()); // "Olá, Mundo!"
 8. Explique como o método `intern()` funciona em Java. Dê um exemplo de sua aplicação.
 9. Como você poderia reverter uma string usando a classe `StringBuilder`?
 10. Escreva um código que demonstre a diferença de desempenho entre `String` e `StringBuilder` ao concatenar múltiplas strings em um loop.
+
+### 10 Questões Práticas Avançadas sobre Strings em Java
+1. Validação de CPF: Escreva um método que valide um número de CPF em formato de string ("123.456.789-09") verificando os dígitos verificadores.
+2. Criptografia simples: Crie um método que implemente uma criptografia de substituição de caracteres, onde cada letra é substituída pela sua seguinte no alfabeto. Por exemplo: "abc" → "bcd".
+3. Formatação de número: Escreva um código que recebe uma string representando um número e o formata como um valor monetário no formato brasileiro. Exemplo: Entrada: "123456" → Saída: "R$ 1.234,56".
+4. Verificar strings rotacionadas: Implemente um método que verifica se uma string é uma rotação de outra. Exemplo: "abcde" é uma rotação de "cdeab".
+5. Contador de vogais e consoantes: Escreva um código que conta o número de vogais e consoantes em uma string fornecida.
+6. Remoção de caracteres duplicados: Crie um método que remove todos os caracteres duplicados em uma string mantendo a ordem de ocorrência. Exemplo: Entrada: "banana" → Saída: "ban".
+7. Busca de substring mais longa sem caracteres repetidos: Desenvolva um método para encontrar a substring mais longa em uma string que não tenha caracteres repetidos. Exemplo: Entrada: "abcabcbb" → Saída: "abc".
+8. Inversão de palavras em uma frase: Escreva um método que inverte a ordem das palavras em uma frase. Exemplo: Entrada: "Olá mundo Java" → Saída: "Java mundo Olá".
+9. Cálculo de frequência de palavras: Dado um texto, crie um código que calcula a frequência de cada palavra, desconsiderando maiúsculas/
+10. Compressão de string: Implemente um método que comprime uma string representando os caracteres repetidos como pares de caractere e quantidade. Exemplo: Entrada: "aaabbc" → Saída: "a3b2c1".
