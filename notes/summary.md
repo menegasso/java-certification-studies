@@ -1,1 +1,0 @@
-# Resumos de Estudos
