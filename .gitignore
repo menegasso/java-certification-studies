@@ -1,0 +1,7 @@
+# Ignorar arquivos compilados .class
+*.class
+
+# Ignorar diretórios de saída de compilação
+out/
+target/
+build/
